@@ -1,7 +1,10 @@
 import HTTPClient from './http'
 import {
   createDeviceParams,
+  Device,
+  deviceList,
   devicesQueryParams,
+  DeviceType,
   deviceTypeList,
   transferMultipleDevicesParams,
   updateDeviceParams,
@@ -28,7 +31,7 @@ export default class Client {
     })
   }
 
-  public devices(params: devicesQueryParams = {}): Promise<any> {
+  public devices(params: devicesQueryParams = {}): Promise<deviceList> {
     return this.http.get('/devices', params)
   }
 
@@ -36,7 +39,7 @@ export default class Client {
     return this.http.post('/devices', params)
   }
 
-  public getDevice(deviceId: string): Promise<any> {
+  public getDevice(deviceId: string): Promise<Device> {
     return this.http.get(`/devices/${deviceId}`)
   }
 
@@ -76,7 +79,7 @@ export default class Client {
     return this.http.post('/devices/bulk/transfer', params)
   }
 
-  public getDeviceType(deviceTypeId: string): Promise<any> {
+  public getDeviceType(deviceTypeId: string): Promise<DeviceType> {
     return this.http.get(`/device-types/${deviceTypeId}`)
   }
 

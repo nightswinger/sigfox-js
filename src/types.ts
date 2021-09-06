@@ -1,3 +1,38 @@
+export type Device = {
+  id: string,
+  name: string,
+  satelliteCapable?: boolean,
+  repeater?: boolean,
+  messageModulo?: number,
+  deviceType?: MinimalDeviceType,
+  contract?: MinimalContract,
+  group?: MinimalGroup,
+  modemCertificate?: Certificate,
+  prototype?: boolean,
+  productCertificate?: Certificate,
+  location?: DeviceLocation,
+  lastComputedLocation?: LastComputedLocation,
+  pac: string,
+  sequenceNumber?: number,
+  trashSequenceNumber?: number,
+  lastCom?: number,
+  lqi?: number,
+  activationTime?: number,
+  creationTime: number,
+  state: number,
+  comState: number,
+  token?: Token,
+  unsubscriptionTime?: number,
+  createdBy?: string,
+  lastEditionTime?: number,
+  lastEditedBy?: string,
+  automaticRenewal: boolean,
+  automaticRenewalStatus?: number,
+  activable?: boolean,
+  actions?: string[],
+  resources?: string[]
+}
+
 export type DeviceType = {
   name?: string,
   description?: string,
@@ -18,6 +53,61 @@ export type DeviceType = {
   createdBy?: string,
   lastEditionTime?: number,
   lastEditedBy?: string
+}
+
+export type MinimalDeviceType = {
+  id?: string,
+  name?: string,
+  actions?: string[],
+  resources?: string[]
+}
+
+export type MinimalContract = {
+  id?: string,
+  name?: string,
+  actions?: string[],
+  resources?: string[]
+}
+
+export type MinimalGroup = {
+  id?: string,
+  name?: string,
+  type?: number,
+  level?: number,
+  actions?: string[],
+  resources?: string[]
+}
+
+export type Certificate = {
+  id?: string,
+  key?: string
+}
+
+export type DeviceLocation = {
+  lat?: number,
+  lng?: number
+}
+
+export type LastComputedLocation = {
+  lat?: number,
+  lng?: number,
+  radius?: number,
+  sourceCode?: number,
+  placeIds?: string[]
+}
+
+export type Token = {
+  state?: number,
+  detailMessage?: string,
+  end?: number,
+  freeMessages?: number,
+  freeMessagesSent?: number
+}
+
+export type deviceList = {
+  data?: Device[],
+  actions?: string[],
+  paging?: object
 }
 
 export type deviceTypeList = {
