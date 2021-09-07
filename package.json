@@ -1,5 +1,5 @@
 {
-  "name": "sigfox-js",
+  "name": "@nightswinger/sigfox-js",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1"
   },
