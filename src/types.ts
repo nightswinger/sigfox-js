@@ -193,6 +193,14 @@ export type createDeviceParams = {
   pac: string;
 };
 
+export type createMultipleDevicesParams = {
+  deviceTypeId: string;
+  productCertificate?: object;
+  prototype?: boolean;
+  prefix?: string;
+  data?: object[];
+};
+
 export type updateDeviceParams = {
   activable?: boolean;
   automaticRenewal?: boolean;
