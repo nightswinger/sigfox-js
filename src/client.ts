@@ -1,4 +1,9 @@
-import { createMultipleDevicesParams, DeviceMessage, Pagination } from ".";
+import {
+  createMultipleDevicesParams,
+  DeviceMessage,
+  Pagination,
+  updateMultipleDevicesParams,
+} from ".";
 import HTTPClient from "./http";
 import {
   createDeviceParams,
@@ -77,7 +82,13 @@ export default class Client {
   public createMultipleDevices(
     params: createMultipleDevicesParams
   ): Promise<any> {
-    return this.http.put("/devices/bulk", params);
+    return this.http.post("/devices/bulk", params);
+  }
+
+  public updateMultipleDevices(
+    params: updateMultipleDevicesParams
+  ): Promise<any> {
+    return this.http.put("/devices/bluk", params);
   }
 
   public deviceTypes(): Promise<deviceTypeList> {

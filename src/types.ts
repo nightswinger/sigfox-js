@@ -41,6 +41,17 @@ export type Device = {
   resources?: string[];
 };
 
+export type DeviceEditionBulk = {
+  activable?: boolean;
+  automaticRenewal?: boolean;
+  lat?: number;
+  lng?: number;
+  productCertificate?: any;
+  prototype?: boolean;
+  id: string;
+  name?: string;
+};
+
 export type DeviceMessage = {
   device?: any;
   time?: number;
@@ -209,6 +220,10 @@ export type updateDeviceParams = {
   productCertificate?: object;
   prototype?: boolean;
   name?: string;
+};
+
+export type updateMultipleDevicesParams = {
+  data: DeviceEditionBulk[];
 };
 
 export type transferMultipleDevicesParams = {
