@@ -96,6 +96,12 @@ export type DownlinkAnswerStatus = {
   country?: string;
 };
 
+export type JobStatus = {
+  jobDone?: boolean;
+  total?: number;
+  status?: object;
+};
+
 export type Pagination = {
   next?: string;
 };

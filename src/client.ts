@@ -1,20 +1,19 @@
-import {
-  createMultipleDevicesParams,
-  DeviceMessage,
-  Pagination,
-  updateMultipleDevicesParams,
-} from ".";
 import HTTPClient from "./http";
 import {
   createDeviceParams,
+  createMultipleDevicesParams,
   Device,
   deviceList,
+  DeviceMessage,
   devicesQueryParams,
   DeviceType,
   deviceTypeList,
+  JobStatus,
+  Pagination,
   transferMultipleDevicesParams,
   updateDeviceParams,
   updateDeviceTypeParams,
+  updateMultipleDevicesParams,
 } from "./types";
 import { btoa } from "./utils";
 
@@ -89,6 +88,10 @@ export default class Client {
     params: updateMultipleDevicesParams
   ): Promise<any> {
     return this.http.put("/devices/bluk", params);
+  }
+
+  public getJobStatus(jobId: string): Promise<JobStatus> {
+    return this.http.get(`/devices/bulk/${jobId}`);
   }
 
   public deviceTypes(): Promise<deviceTypeList> {
