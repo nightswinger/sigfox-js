@@ -94,6 +94,10 @@ export default class Client {
     return this.http.get(`/devices/bulk/${jobId}`);
   }
 
+  public resumeMultipleDevices(params: { data: string[] }): Promise<any> {
+    return this.http.post("/devices/bulk/resume", params);
+  }
+
   public deviceTypes(): Promise<deviceTypeList> {
     return this.http.get("/device-types");
   }
