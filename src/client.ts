@@ -98,6 +98,10 @@ export default class Client {
     return this.http.post("/devices/bulk/resume", params);
   }
 
+  public getResumeJobStatus(jobId: string): Promise<any> {
+    return this.http.get(`/devices/bulk/resume/${jobId}`);
+  }
+
   public deviceTypes(): Promise<deviceTypeList> {
     return this.http.get("/device-types");
   }
