@@ -102,6 +102,12 @@ export default class Client {
     return this.http.get(`/devices/bulk/resume/${jobId}`);
   }
 
+  public unsubscribeMultipleDevices(params: {
+    data: { id: string; unsubscriptionTime: number }[];
+  }): Promise<{ jobId: string }> {
+    return this.http.post("/devices/bulk/unsubscribe", params);
+  }
+
   public deviceTypes(): Promise<deviceTypeList> {
     return this.http.get("/device-types");
   }
