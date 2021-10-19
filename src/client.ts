@@ -8,6 +8,7 @@ import {
   devicesQueryParams,
   DeviceType,
   deviceTypeList,
+  getMessagesQueryParams,
   JobStatus,
   Pagination,
   transferMultipleDevicesParams,
@@ -65,7 +66,8 @@ export default class Client {
   }
 
   public getMessages(
-    deviceId: string
+    deviceId: string,
+    query: getMessagesQueryParams = {}
   ): Promise<{ data?: DeviceMessage[]; paging?: Pagination }> {
     return this.http.get(`/devices/${deviceId}/messages`);
   }

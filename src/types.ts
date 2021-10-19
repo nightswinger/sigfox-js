@@ -218,6 +218,14 @@ export type createMultipleDevicesParams = {
   data?: object[];
 };
 
+export type getMessagesQueryParams = {
+  fields?: string;
+  since?: number;
+  before?: number;
+  limit?: number;
+  offset?: number;
+};
+
 export type updateDeviceParams = {
   activable?: boolean;
   automaticRenewal?: boolean;
