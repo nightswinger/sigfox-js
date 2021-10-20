@@ -67,7 +67,7 @@ export default class Client {
 
   public getMessages(
     deviceId: string,
-    query: getMessagesQueryParams = {}
+    query: getMessagesQueryParams = {},
   ): Promise<{ data?: DeviceMessage[]; paging?: Pagination }> {
     return this.http.get(`/devices/${deviceId}/messages`);
   }
@@ -81,13 +81,13 @@ export default class Client {
   }
 
   public createMultipleDevices(
-    params: createMultipleDevicesParams
+    params: createMultipleDevicesParams,
   ): Promise<any> {
     return this.http.post("/devices/bulk", params);
   }
 
   public updateMultipleDevices(
-    params: updateMultipleDevicesParams
+    params: updateMultipleDevicesParams,
   ): Promise<any> {
     return this.http.put("/devices/bluk", params);
   }
@@ -115,7 +115,7 @@ export default class Client {
   }
 
   public transferMultipleDevices(
-    params: transferMultipleDevicesParams
+    params: transferMultipleDevicesParams,
   ): Promise<any> {
     return this.http.post("/devices/bulk/transfer", params);
   }
@@ -126,7 +126,7 @@ export default class Client {
 
   public updateDeviceType(
     deviceTypeId: string,
-    params: updateDeviceTypeParams
+    params: updateDeviceTypeParams,
   ): Promise<any> {
     return this.http.put(`/device-types/${deviceTypeId}`, params);
   }
@@ -141,10 +141,10 @@ export default class Client {
 
   public getCallbacksNotDelivered(
     deviceTypeId: string,
-    callbackId: string
+    callbackId: string,
   ): Promise<any> {
     return this.http.get(
-      `/device-types/${deviceTypeId}/callbacks/${callbackId}/callbacks-not-delivered`
+      `/device-types/${deviceTypeId}/callbacks/${callbackId}/callbacks-not-delivered`,
     );
   }
 
