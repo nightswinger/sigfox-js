@@ -131,6 +131,10 @@ export default class Client {
     return this.http.put(`/device-types/${deviceTypeId}`, params);
   }
 
+  public deleteDeviceType(deviceTypeId: string): Promise<void> {
+    return this.http.delete(`/device-types/${deviceTypeId}`);
+  }
+
   public getMessagesByDeviceType(deviceTypeId: string): Promise<any> {
     return this.http.get(`/device-types/${deviceTypeId}/messages`);
   }
