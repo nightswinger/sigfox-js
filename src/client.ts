@@ -139,6 +139,13 @@ export default class Client {
     return this.http.get(`/device-types/${deviceTypeId}/messages`);
   }
 
+  public enableOrDisableCallback(
+    deviceTypeId: string,
+    callbackId: string,
+  ): Promise<any> {
+    return this.http.put(`/device-types/${id}/callbacks/${callbackId}/enable`);
+  }
+
   public getCallbacksNotDelivered(
     deviceTypeId: string,
     callbackId: string,
