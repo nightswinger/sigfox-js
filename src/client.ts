@@ -143,7 +143,18 @@ export default class Client {
     deviceTypeId: string,
     callbackId: string,
   ): Promise<any> {
-    return this.http.put(`/device-types/${id}/callbacks/${callbackId}/enable`);
+    return this.http.put(
+      `/device-types/${deviceTypeId}/callbacks/${callbackId}/enable`,
+    );
+  }
+
+  public selectDownlinkCallback(
+    deviceTypeId: string,
+    callbackId: string,
+  ): Promise<any> {
+    return this.http.put(
+      `/device-types/${deviceTypeId}/callbacks/${callbackId}/downlink`,
+    );
   }
 
   public getCallbacksNotDelivered(
