@@ -1,4 +1,5 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
+import { HTTPError, ReadError, RequestError } from "./exceptions";
 
 interface httpClientConfig extends Partial<AxiosRequestConfig> {
   baseURL?: string;
@@ -17,6 +18,11 @@ export default class HTTPClient {
       baseURL: "https://api.sigfox.com/v2/",
       headers: Object.assign({}, defaultHeaders),
     });
+
+    this.instance.interceptors.response.use(
+      res => res,
+      err => Promise.reject(this.wrapError(err)),
+    );
   }
 
   public async get<T>(url: string, params = {}): Promise<T> {
@@ -37,5 +43,22 @@ export default class HTTPClient {
   public async delete<T>(url: string): Promise<T> {
     const res = await this.instance.delete(url);
     return res.data;
+  }
+
+  private wrapError(err: AxiosError): Error {
+    if (err.response) {
+      return new HTTPError(
+        err.message,
+        err.response.status,
+        err.response.statusText,
+        err,
+      );
+    } else if (err.code) {
+      return new RequestError(err.message, err.code, err);
+    } else if (err.config) {
+      return new ReadError(err);
+    }
+
+    return err;
   }
 }
