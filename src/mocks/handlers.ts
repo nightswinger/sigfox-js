@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 
-const sigfox = (path) => {
+const sigfox = (path: string) => {
   return new URL(`/v2${path}`, 'https://api.sigfox.com').toString()
 }
 
