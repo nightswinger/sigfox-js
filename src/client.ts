@@ -170,6 +170,10 @@ export default class Client {
     return this.http.get("/groups");
   }
 
+  public getGroup(groupId: string): Promise<any> {
+    return this.http.get(`/groups/${groupId}`)
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
