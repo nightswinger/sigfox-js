@@ -69,7 +69,7 @@ export default class Client {
     deviceId: string,
     query: getMessagesQueryParams = {},
   ): Promise<{ data?: DeviceMessage[]; paging?: Pagination }> {
-    return this.http.get(`/devices/${deviceId}/messages`);
+    return this.http.get(`/devices/${deviceId}/messages`, query);
   }
 
   public getNumberOfMessages(deviceId: string): Promise<any> {
