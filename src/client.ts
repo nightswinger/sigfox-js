@@ -1,6 +1,7 @@
 import HTTPClient from "./http";
 import {
   createDeviceParams,
+  createGroupParams,
   createMultipleDevicesParams,
   Device,
   deviceList,
@@ -9,6 +10,8 @@ import {
   DeviceType,
   deviceTypeList,
   getMessagesQueryParams,
+  Group,
+  groupsQueryParams,
   JobStatus,
   Pagination,
   transferMultipleDevicesParams,
@@ -166,12 +169,18 @@ export default class Client {
     );
   }
 
-  public groups(query: any = {}): Promise<any> {
-    return this.http.get("/groups");
+  public groups(
+    query: groupsQueryParams = {},
+  ): Promise<{ data?: Group[]; paging?: Pagination }> {
+    return this.http.get("/groups", query);
+  }
+
+  public createGroup(params: createGroupParams): Promise<{ id?: string }> {
+    return this.http.post("/groups", params);
   }
 
   public getGroup(groupId: string): Promise<any> {
-    return this.http.get(`/groups/${groupId}`)
+    return this.http.get(`/groups/${groupId}`);
   }
 
   private authHeader() {

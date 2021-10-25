@@ -96,6 +96,21 @@ export type DownlinkAnswerStatus = {
   country?: string;
 };
 
+export type Group = {
+  name?: string;
+  description?: string;
+  type?: number;
+  timezone?: string;
+  id?: string;
+  nameCI?: string;
+  path?: any;
+  createdBy?: string;
+  creationTime?: number;
+  leaf?: boolean;
+  actions?: string[];
+  networkOperatorId?: string;
+};
+
 export type JobStatus = {
   jobDone?: boolean;
   total?: number;
@@ -210,6 +225,15 @@ export type createDeviceParams = {
   pac: string;
 };
 
+export type createGroupParams = {
+  name: string;
+  description: string;
+  type: number;
+  timezone: string;
+  parentId: string;
+  networkOperatorId?: string;
+};
+
 export type createMultipleDevicesParams = {
   deviceTypeId: string;
   productCertificate?: object;
@@ -224,6 +248,20 @@ export type getMessagesQueryParams = {
   before?: number;
   limit?: number;
   offset?: number;
+};
+
+export type groupsQueryParams = {
+  parentIds?: string[];
+  deep?: boolean;
+  name?: string;
+  types?: number[];
+  fields?: string;
+  action?: string;
+  sort?: string;
+  authorizations?: boolean;
+  limit?: number;
+  offset?: number;
+  pageId?: string;
 };
 
 export type updateDeviceParams = {
