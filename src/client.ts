@@ -187,6 +187,10 @@ export default class Client {
     return this.http.put(`/groups/${groupId}`, params)
   }
 
+  public deleteGroup(groupId: string): Promise<void> {
+    return this.http.delete(`/groups/${groupId}`)
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
