@@ -191,6 +191,10 @@ export default class Client {
     return this.http.delete(`/groups/${groupId}`)
   }
 
+  public getOperator(operatorId: string, query: any = {}): Promise<any> {
+    return this.http.get(`/operators/${operatorId}`, query)
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
