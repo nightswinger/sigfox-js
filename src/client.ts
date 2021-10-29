@@ -184,15 +184,19 @@ export default class Client {
   }
 
   public updateGroup(groupId: string, params: any): Promise<void> {
-    return this.http.put(`/groups/${groupId}`, params)
+    return this.http.put(`/groups/${groupId}`, params);
   }
 
   public deleteGroup(groupId: string): Promise<void> {
-    return this.http.delete(`/groups/${groupId}`)
+    return this.http.delete(`/groups/${groupId}`);
   }
 
   public getOperator(operatorId: string, query: any = {}): Promise<any> {
-    return this.http.get(`/operators/${operatorId}`, query)
+    return this.http.get(`/operators/${operatorId}`, query);
+  }
+
+  public updateOperator(operatorId: string, params: any = {}): Promise<void> {
+    return this.http.put(`/operators/${operatorId}`, params);
   }
 
   private authHeader() {
