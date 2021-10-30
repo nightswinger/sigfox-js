@@ -199,6 +199,10 @@ export default class Client {
     return this.http.put(`/operators/${operatorId}`, params);
   }
 
+  public profiles(query: any = {}): Promise<any> {
+    return this.http.get("/profiles", query);
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
