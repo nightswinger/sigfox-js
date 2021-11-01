@@ -207,6 +207,10 @@ export default class Client {
     return this.http.get(`/profiles/${profileId}`, query);
   }
 
+  public users(query: any = {}): Promise<any> {
+    return this.http.get("/users", query);
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
