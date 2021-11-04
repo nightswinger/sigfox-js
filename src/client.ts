@@ -219,6 +219,10 @@ export default class Client {
     return this.http.get(`/users/${userId}`, query);
   }
 
+  public updateUser(userId: string, params: any = {}): Promise<any> {
+    return this.http.put(`/users/${userId}`, params);
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
