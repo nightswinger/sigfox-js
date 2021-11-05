@@ -223,6 +223,10 @@ export default class Client {
     return this.http.put(`/users/${userId}`, params);
   }
 
+  public deleteUser(userId: string): Promise<void> {
+    return this.http.delete(`/users${userId}`);
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
