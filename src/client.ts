@@ -227,6 +227,10 @@ export default class Client {
     return this.http.delete(`/users${userId}`);
   }
 
+  public addUserRoles(userId: string, params: any = {}): Promise<void> {
+    return this.http.put(`/users/${userId}/profiles`);
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
