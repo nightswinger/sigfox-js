@@ -228,7 +228,15 @@ export default class Client {
   }
 
   public addUserRoles(userId: string, params: any = {}): Promise<void> {
-    return this.http.put(`/users/${userId}/profiles`);
+    return this.http.put(`/users/${userId}/profiles`, params);
+  }
+
+  public deleteUserProfiles(
+    userId: string,
+    profileId: string,
+    query: any = {},
+  ): Promise<void> {
+    return this.http.delete(`/users/${userId}/profiles/${profileId}`, query);
   }
 
   private authHeader() {
