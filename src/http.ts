@@ -40,8 +40,8 @@ export default class HTTPClient {
     return res.data;
   }
 
-  public async delete<T>(url: string): Promise<T> {
-    const res = await this.instance.delete(url);
+  public async delete<T>(url: string, params = {}): Promise<T> {
+    const res = await this.instance.delete(url, { params });
     return res.data;
   }
 
