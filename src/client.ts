@@ -239,6 +239,10 @@ export default class Client {
     return this.http.delete(`/users/${userId}/profiles/${profileId}`, query);
   }
 
+  public contracts(query: any = {}): Promise<any> {
+    return this.http.get("/contract-infos", query);
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
