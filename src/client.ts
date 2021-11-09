@@ -243,6 +243,10 @@ export default class Client {
     return this.http.get("/contract-infos", query);
   }
 
+  public getContract(contractId: string, query: any = {}): Promise<any> {
+    return this.http.get(`/contract-infos/${contractId}`, query);
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
