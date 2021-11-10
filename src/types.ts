@@ -66,6 +66,28 @@ export type DeviceMessage = {
   donwlinkAnswerStatus?: DownlinkAnswerStatus;
 };
 
+export type DevicesOutput = {
+  data?: Device[];
+  actions?: string[];
+  paging?: object;
+};
+
+export type DevicesQuery = {
+  id?: string;
+  groupIds?: string[];
+  deep?: boolean;
+  authorizations?: boolean;
+  deviceTypeId?: string;
+  operatorId?: string;
+  sort?: string;
+  minId?: string;
+  maxId?: string;
+  fields?: string;
+  limit?: number;
+  offset?: number;
+  pageId?: string;
+};
+
 export type DeviceType = {
   name?: string;
   description?: string;
@@ -202,28 +224,6 @@ export type Token = {
   end?: number;
   freeMessages?: number;
   freeMessagesSent?: number;
-};
-
-export type deviceList = {
-  data?: Device[];
-  actions?: string[];
-  paging?: object;
-};
-
-export type devicesQueryParams = {
-  id?: string;
-  groupIds?: string[];
-  deep?: boolean;
-  authorizations?: boolean;
-  deviceTypeId?: string;
-  operatorId?: string;
-  sort?: string;
-  minId?: string;
-  maxId?: string;
-  fields?: string;
-  limit?: number;
-  offset?: number;
-  pageId?: string;
 };
 
 export type createDeviceParams = {

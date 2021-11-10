@@ -4,9 +4,9 @@ import {
   createGroupParams,
   createMultipleDevicesParams,
   Device,
-  deviceList,
   DeviceMessage,
-  devicesQueryParams,
+  DevicesOutput,
+  DevicesQuery,
   DeviceType,
   DeviceTypesOutput,
   DeviceTypesQuery,
@@ -41,7 +41,7 @@ export default class Client {
     });
   }
 
-  public devices(params: devicesQueryParams = {}): Promise<deviceList> {
+  public devices(params: DevicesQuery = {}): Promise<DevicesOutput> {
     return this.http.get("/devices", params);
   }
 
