@@ -8,7 +8,8 @@ import {
   DeviceMessage,
   devicesQueryParams,
   DeviceType,
-  deviceTypeList,
+  DeviceTypesOutput,
+  DeviceTypesQuery,
   getMessagesQueryParams,
   Group,
   groupsQueryParams,
@@ -113,8 +114,8 @@ export default class Client {
     return this.http.post("/devices/bulk/unsubscribe", params);
   }
 
-  public deviceTypes(): Promise<deviceTypeList> {
-    return this.http.get("/device-types");
+  public deviceTypes(query: DeviceTypesQuery = {}): Promise<DeviceTypesOutput> {
+    return this.http.get("/device-types", query);
   }
 
   public transferMultipleDevices(

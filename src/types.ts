@@ -88,6 +88,26 @@ export type DeviceType = {
   lastEditedBy?: string;
 };
 
+export type DeviceTypesOutput = {
+  data?: DeviceType[];
+  actions?: string[];
+  paging?: Pagination;
+};
+
+export type DeviceTypesQuery = {
+  name?: string;
+  groupIds?: string[];
+  deep?: boolean;
+  contractId?: string;
+  payloadType?: number;
+  authorizations?: boolean;
+  sort?: string;
+  fields?: string;
+  limit?: number;
+  offset?: number;
+  pageId?: string;
+};
+
 export type DownlinkAnswerStatus = {
   baseStation?: any;
   plannedPower?: number;
@@ -186,12 +206,6 @@ export type Token = {
 
 export type deviceList = {
   data?: Device[];
-  actions?: string[];
-  paging?: object;
-};
-
-export type deviceTypeList = {
-  data?: DeviceType[];
   actions?: string[];
   paging?: object;
 };
