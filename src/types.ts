@@ -6,6 +6,23 @@ export type ComputedLocation = {
   placeIds?: string[];
 };
 
+export type CreateDeviceOutput = {
+  id?: string;
+};
+
+export type CreateDeviceParams = {
+  id: string;
+  name: string;
+  activable?: boolean;
+  automaticRenewal?: boolean;
+  lat?: number;
+  lng?: number;
+  productCertificate?: object;
+  prototype?: boolean;
+  deviceTypeId: string;
+  pac: string;
+};
+
 export type Device = {
   id: string;
   name: string;
@@ -224,19 +241,6 @@ export type Token = {
   end?: number;
   freeMessages?: number;
   freeMessagesSent?: number;
-};
-
-export type createDeviceParams = {
-  id: string;
-  name: string;
-  activable?: boolean;
-  automaticRenewal?: boolean;
-  lat?: number;
-  lng?: number;
-  productCertificate?: object;
-  prototype?: boolean;
-  deviceTypeId: string;
-  pac: string;
 };
 
 export type createGroupParams = {
