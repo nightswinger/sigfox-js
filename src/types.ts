@@ -243,6 +243,16 @@ export type Token = {
   freeMessagesSent?: number;
 };
 
+export type UpdateDeviceParams = {
+  activable?: boolean;
+  automaticRenewal?: boolean;
+  lat?: number;
+  lng?: number;
+  productCertificate?: object;
+  prototype?: boolean;
+  name?: string;
+};
+
 export type createGroupParams = {
   name: string;
   description: string;
@@ -280,16 +290,6 @@ export type groupsQueryParams = {
   limit?: number;
   offset?: number;
   pageId?: string;
-};
-
-export type updateDeviceParams = {
-  activable?: boolean;
-  automaticRenewal?: boolean;
-  lat?: number;
-  lng?: number;
-  productCertificate?: object;
-  prototype?: boolean;
-  name?: string;
 };
 
 export type updateMultipleDevicesParams = {

@@ -17,7 +17,7 @@ import {
   JobStatus,
   Pagination,
   transferMultipleDevicesParams,
-  updateDeviceParams,
+  UpdateDeviceParams,
   updateDeviceTypeParams,
   updateMultipleDevicesParams,
 } from "./types";
@@ -54,7 +54,7 @@ export default class Client {
     return this.http.get(`/devices/${deviceId}`);
   }
 
-  public updateDevice(deviceId: string, params: updateDeviceParams) {
+  public updateDevice(deviceId: string, params: UpdateDeviceParams): Promise<void> {
     return this.http.put(`/devices/${deviceId}`, params);
   }
 
