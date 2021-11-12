@@ -11,6 +11,8 @@ import {
   DeviceType,
   DeviceTypesOutput,
   DeviceTypesQuery,
+  GetUndeliveredCallbacksOutput,
+  GetUndeliveredCallbacksQuery,
   getMessagesQueryParams,
   Group,
   groupsQueryParams,
@@ -54,16 +56,22 @@ export default class Client {
     return this.http.get(`/devices/${deviceId}`);
   }
 
-  public updateDevice(deviceId: string, params: UpdateDeviceParams): Promise<void> {
+  public updateDevice(
+    deviceId: string,
+    params: UpdateDeviceParams,
+  ): Promise<void> {
     return this.http.put(`/devices/${deviceId}`, params);
   }
 
-  public deleteDevice(deviceId: string): Promise<any> {
+  public deleteDevice(deviceId: string): Promise<void> {
     return this.http.delete(`/devices/${deviceId}`);
   }
 
-  public getUndeliveredCallbacks(deviceId: string): Promise<any> {
-    return this.http.get(`/devices/${deviceId}/callbacks-not-delivered`);
+  public getUndeliveredCallbacks(
+    deviceId: string,
+    query: GetUndeliveredCallbacksQuery = {},
+  ): Promise<GetUndeliveredCallbacksOutput> {
+    return this.http.get(`/devices/${deviceId}/callbacks-not-delivered`, query);
   }
 
   public disengageSequenceNumber(deviceId: string): Promise<any> {

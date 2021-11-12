@@ -1,3 +1,14 @@
+export type Callback = {
+  subject?: string;
+  message?: string;
+  url?: string;
+  headers?: any;
+  body?: string;
+  contentType?: string;
+  method?: string;
+  error?: string;
+};
+
 export type ComputedLocation = {
   lat?: number;
   lng?: number;
@@ -67,6 +78,17 @@ export type DeviceEditionBulk = {
   prototype?: boolean;
   id: string;
   name?: string;
+};
+
+export type DeviceErrorMessage = {
+  deviceId?: string;
+  deviceTypeId?: string;
+  time?: number;
+  data?: string;
+  status?: string;
+  message?: string;
+  callback?: Callback;
+  parameters?: any;
 };
 
 export type DeviceMessage = {
@@ -153,6 +175,18 @@ export type DownlinkAnswerStatus = {
   data?: string;
   operator?: string;
   country?: string;
+};
+
+export type GetUndeliveredCallbacksOutput = {
+  data?: DeviceErrorMessage[];
+  paging?: Pagination;
+};
+
+export type GetUndeliveredCallbacksQuery = {
+  since?: number;
+  before?: number;
+  limit?: number;
+  offset?: number;
 };
 
 export type Group = {
