@@ -5,7 +5,6 @@ import {
   createGroupParams,
   createMultipleDevicesParams,
   Device,
-  DeviceMessage,
   DevicesOutput,
   DevicesQuery,
   DeviceType,
@@ -13,7 +12,9 @@ import {
   DeviceTypesQuery,
   GetUndeliveredCallbacksOutput,
   GetUndeliveredCallbacksQuery,
-  getMessagesQueryParams,
+  GetMessagesOutput,
+  GetMessagesQuery,
+  GetNumberOfMessagesOutput,
   Group,
   groupsQueryParams,
   JobStatus,
@@ -74,18 +75,20 @@ export default class Client {
     return this.http.get(`/devices/${deviceId}/callbacks-not-delivered`, query);
   }
 
-  public disengageSequenceNumber(deviceId: string): Promise<any> {
+  public disengageSequenceNumber(deviceId: string): Promise<void> {
     return this.http.post(`/devices/${deviceId}/disengage`);
   }
 
   public getMessages(
     deviceId: string,
-    query: getMessagesQueryParams = {},
-  ): Promise<{ data?: DeviceMessage[]; paging?: Pagination }> {
+    query: GetMessagesQuery = {},
+  ): Promise<GetMessagesOutput> {
     return this.http.get(`/devices/${deviceId}/messages`, query);
   }
 
-  public getNumberOfMessages(deviceId: string): Promise<any> {
+  public getNumberOfMessages(
+    deviceId: string,
+  ): Promise<GetNumberOfMessagesOutput> {
     return this.http.get(`/devices/${deviceId}/messages/metric`);
   }
 

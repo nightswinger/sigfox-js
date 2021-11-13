@@ -189,6 +189,25 @@ export type GetUndeliveredCallbacksQuery = {
   offset?: number;
 };
 
+export type GetMessagesOutput = {
+  data?: DeviceMessage[];
+  paging?: Pagination;
+};
+
+export type GetMessagesQuery = {
+  fields?: string;
+  since?: number;
+  before?: number;
+  limit?: number;
+  offset?: number;
+};
+
+export type GetNumberOfMessagesOutput = {
+  lastDay?: number;
+  lastWeek?: number;
+  lastMonth?: number;
+};
+
 export type Group = {
   name?: string;
   description?: string;
@@ -302,14 +321,6 @@ export type createMultipleDevicesParams = {
   prototype?: boolean;
   prefix?: string;
   data?: object[];
-};
-
-export type getMessagesQueryParams = {
-  fields?: string;
-  since?: number;
-  before?: number;
-  limit?: number;
-  offset?: number;
 };
 
 export type groupsQueryParams = {
