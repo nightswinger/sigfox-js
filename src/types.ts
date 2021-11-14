@@ -177,6 +177,19 @@ export type DownlinkAnswerStatus = {
   country?: string;
 };
 
+export type GetDeviceLocationsOutput = {
+  data?: DeviceLocation[];
+  paging?: Pagination;
+};
+
+export type GetDeviceLocationsQuery = {
+  oob?: boolean;
+  since?: number;
+  before?: number;
+  limit?: number;
+  offset?: number;
+};
+
 export type GetUndeliveredCallbacksOutput = {
   data?: DeviceErrorMessage[];
   paging?: Pagination;

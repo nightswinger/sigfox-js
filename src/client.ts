@@ -10,6 +10,8 @@ import {
   DeviceType,
   DeviceTypesOutput,
   DeviceTypesQuery,
+  GetDeviceLocationsOutput,
+  GetDeviceLocationsQuery,
   GetUndeliveredCallbacksOutput,
   GetUndeliveredCallbacksQuery,
   GetMessagesOutput,
@@ -92,8 +94,11 @@ export default class Client {
     return this.http.get(`/devices/${deviceId}/messages/metric`);
   }
 
-  public getDeviceLocations(deviceId: string): Promise<any> {
-    return this.http.get(`/devices/${deviceId}/locations`);
+  public getDeviceLocations(
+    deviceId: string,
+    query: GetDeviceLocationsQuery,
+  ): Promise<GetDeviceLocationsOutput> {
+    return this.http.get(`/devices/${deviceId}/locations`, query);
   }
 
   public createMultipleDevices(
