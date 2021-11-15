@@ -3,7 +3,8 @@ import {
   CreateDeviceOutput,
   CreateDeviceParams,
   createGroupParams,
-  createMultipleDevicesParams,
+  CreateMultipleDevicesOutput,
+  CreateMultipleDevicesParams,
   Device,
   DevicesOutput,
   DevicesQuery,
@@ -102,8 +103,8 @@ export default class Client {
   }
 
   public createMultipleDevices(
-    params: createMultipleDevicesParams,
-  ): Promise<any> {
+    params: CreateMultipleDevicesParams,
+  ): Promise<CreateMultipleDevicesOutput> {
     return this.http.post("/devices/bulk", params);
   }
 

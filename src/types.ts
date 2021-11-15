@@ -9,6 +9,10 @@ export type Callback = {
   error?: string;
 };
 
+export type CertificateUpdate = {
+  key?: string;
+};
+
 export type ComputedLocation = {
   lat?: number;
   lng?: number;
@@ -32,6 +36,19 @@ export type CreateDeviceParams = {
   prototype?: boolean;
   deviceTypeId: string;
   pac: string;
+};
+
+export type CreateMultipleDevicesOutput = {
+  total?: number;
+  jobId?: string;
+};
+
+export type CreateMultipleDevicesParams = {
+  deviceTypeId: string;
+  productCertificate?: CertificateUpdate;
+  prototype?: boolean;
+  prefix?: string;
+  data?: DeviceCreate[];
 };
 
 export type Device = {
@@ -67,6 +84,16 @@ export type Device = {
   activable?: boolean;
   actions?: string[];
   resources?: string[];
+};
+
+export type DeviceCreate = {
+  id: string;
+  pac?: string;
+  name?: string;
+  lat?: number;
+  lng?: number;
+  automaticRenewal?: boolean;
+  activable?: boolean;
 };
 
 export type DeviceEditionBulk = {
@@ -326,14 +353,6 @@ export type createGroupParams = {
   timezone: string;
   parentId: string;
   networkOperatorId?: string;
-};
-
-export type createMultipleDevicesParams = {
-  deviceTypeId: string;
-  productCertificate?: object;
-  prototype?: boolean;
-  prefix?: string;
-  data?: object[];
 };
 
 export type groupsQueryParams = {
