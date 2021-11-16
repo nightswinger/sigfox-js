@@ -13,19 +13,26 @@ import {
   DeviceTypesQuery,
   GetDeviceLocationsOutput,
   GetDeviceLocationsQuery,
-  GetUndeliveredCallbacksOutput,
-  GetUndeliveredCallbacksQuery,
   GetMessagesOutput,
   GetMessagesQuery,
   GetNumberOfMessagesOutput,
+  GetResumeJobStatusOutput,
+  GetUndeliveredCallbacksOutput,
+  GetUndeliveredCallbacksQuery,
   Group,
   groupsQueryParams,
   JobStatus,
   Pagination,
-  transferMultipleDevicesParams,
+  ResumeMultipleDevicesOutput,
+  ResumeMultipleDevicesParams,
+  TransferMultipleDevicesOutput,
+  TransferMultipleDevicesParams,
+  UnsubscribeMultipleDevicesOutput,
+  UnsubscribeMultipleDevicesParams,
   UpdateDeviceParams,
   updateDeviceTypeParams,
-  updateMultipleDevicesParams,
+  UpdateMultipleDevicesOutput,
+  UpdateMultipleDevicesParams,
 } from "./types";
 import { btoa } from "./utils";
 
@@ -109,8 +116,8 @@ export default class Client {
   }
 
   public updateMultipleDevices(
-    params: updateMultipleDevicesParams,
-  ): Promise<any> {
+    params: UpdateMultipleDevicesParams,
+  ): Promise<UpdateMultipleDevicesOutput> {
     return this.http.put("/devices/bluk", params);
   }
 
@@ -118,17 +125,19 @@ export default class Client {
     return this.http.get(`/devices/bulk/${jobId}`);
   }
 
-  public resumeMultipleDevices(params: { data: string[] }): Promise<any> {
+  public resumeMultipleDevices(
+    params: ResumeMultipleDevicesParams,
+  ): Promise<ResumeMultipleDevicesOutput> {
     return this.http.post("/devices/bulk/resume", params);
   }
 
-  public getResumeJobStatus(jobId: string): Promise<any> {
+  public getResumeJobStatus(jobId: string): Promise<GetResumeJobStatusOutput> {
     return this.http.get(`/devices/bulk/resume/${jobId}`);
   }
 
-  public unsubscribeMultipleDevices(params: {
-    data: { id: string; unsubscriptionTime: number }[];
-  }): Promise<{ jobId: string }> {
+  public unsubscribeMultipleDevices(
+    params: UnsubscribeMultipleDevicesParams,
+  ): Promise<UnsubscribeMultipleDevicesOutput> {
     return this.http.post("/devices/bulk/unsubscribe", params);
   }
 
@@ -137,8 +146,8 @@ export default class Client {
   }
 
   public transferMultipleDevices(
-    params: transferMultipleDevicesParams,
-  ): Promise<any> {
+    params: TransferMultipleDevicesParams,
+  ): Promise<TransferMultipleDevicesOutput> {
     return this.http.post("/devices/bulk/transfer", params);
   }
 

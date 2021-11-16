@@ -217,6 +217,11 @@ export type GetDeviceLocationsQuery = {
   offset?: number;
 };
 
+export type GetResumeJobStatusOutput = {
+  jobDone?: boolean;
+  status?: object;
+};
+
 export type GetUndeliveredCallbacksOutput = {
   data?: DeviceErrorMessage[];
   paging?: Pagination;
@@ -271,6 +276,14 @@ export type JobStatus = {
 
 export type Pagination = {
   next?: string;
+};
+
+export type ResumeMultipleDevicesOutput = {
+  jobId?: string;
+};
+
+export type ResumeMultipleDevicesParams = {
+  data?: string[];
 };
 
 export type Rinfo = {
@@ -336,6 +349,31 @@ export type Token = {
   freeMessagesSent?: number;
 };
 
+export type TransferMultipleDevicesOutput = {
+  total?: number;
+  jobId?: string;
+};
+
+export type TransferMultipleDevicesParams = {
+  deviceTypeId: string;
+  data?: {
+    id: string;
+    keepHistory?: boolean;
+    activable?: boolean;
+  }[];
+};
+
+export type UnsubscribeMultipleDevicesOutput = {
+  jobId?: string;
+};
+
+export type UnsubscribeMultipleDevicesParams = {
+  data: {
+    id: string;
+    unsubscriptionTime: number;
+  }[];
+};
+
 export type UpdateDeviceParams = {
   activable?: boolean;
   automaticRenewal?: boolean;
@@ -344,6 +382,15 @@ export type UpdateDeviceParams = {
   productCertificate?: object;
   prototype?: boolean;
   name?: string;
+};
+
+export type UpdateMultipleDevicesOutput = {
+  total?: number;
+  jobId?: string;
+};
+
+export type UpdateMultipleDevicesParams = {
+  data: DeviceEditionBulk[];
 };
 
 export type createGroupParams = {
@@ -367,19 +414,6 @@ export type groupsQueryParams = {
   limit?: number;
   offset?: number;
   pageId?: string;
-};
-
-export type updateMultipleDevicesParams = {
-  data: DeviceEditionBulk[];
-};
-
-export type transferMultipleDevicesParams = {
-  deviceTypeId: string;
-  data?: {
-    id: string;
-    keepHistory?: boolean;
-    activable?: boolean;
-  }[];
 };
 
 export type updateDeviceTypeParams = {
