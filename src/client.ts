@@ -145,6 +145,10 @@ export default class Client {
     return this.http.get("/device-types", query);
   }
 
+  public createDeviceType(params: any = {}): Promise<any> {
+    return this.http.post("/device-types", params);
+  }
+
   public transferMultipleDevices(
     params: TransferMultipleDevicesParams,
   ): Promise<TransferMultipleDevicesOutput> {
