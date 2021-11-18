@@ -2,6 +2,8 @@ import HTTPClient from "./http";
 import {
   CreateDeviceOutput,
   CreateDeviceParams,
+  CreateDeviceTypeOutput,
+  CreateDeviceTypeParams,
   createGroupParams,
   CreateMultipleDevicesOutput,
   CreateMultipleDevicesParams,
@@ -145,7 +147,9 @@ export default class Client {
     return this.http.get("/device-types", query);
   }
 
-  public createDeviceType(params: any = {}): Promise<any> {
+  public createDeviceType(
+    params: CreateDeviceTypeParams,
+  ): Promise<CreateDeviceTypeOutput> {
     return this.http.post("/device-types", params);
   }
 

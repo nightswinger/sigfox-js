@@ -21,6 +21,10 @@ export type ComputedLocation = {
   placeIds?: string[];
 };
 
+export type ContractId = {
+  id: string;
+};
+
 export type CreateDeviceOutput = {
   id?: string;
 };
@@ -36,6 +40,26 @@ export type CreateDeviceParams = {
   prototype?: boolean;
   deviceTypeId: string;
   pac: string;
+};
+
+export type CreateDeviceTypeOutput = {
+  id?: string;
+};
+
+export type CreateDeviceTypeParams = {
+  name: string;
+  description?: string;
+  downlinkMode?: number;
+  downlinkDataString?: string;
+  payloadType?: number;
+  payloadConfig?: string;
+  keepAlive?: number;
+  alertEmail?: string;
+  automaticRenewal?: boolean;
+  groupId: string;
+  contractId?: string;
+  contracts: ContractId[];
+  geolocPayloadConfigId: string;
 };
 
 export type CreateMultipleDevicesOutput = {
