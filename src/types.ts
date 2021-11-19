@@ -440,7 +440,7 @@ export type groupsQueryParams = {
   pageId?: string;
 };
 
-export type updateDeviceTypeParams = {
+export type UpdateDeviceTypeParams = {
   name?: string;
   description?: string;
   donwlinkMode?: number;

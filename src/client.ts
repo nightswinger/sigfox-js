@@ -32,7 +32,7 @@ import {
   UnsubscribeMultipleDevicesOutput,
   UnsubscribeMultipleDevicesParams,
   UpdateDeviceParams,
-  updateDeviceTypeParams,
+  UpdateDeviceTypeParams,
   UpdateMultipleDevicesOutput,
   UpdateMultipleDevicesParams,
 } from "./types";
@@ -165,8 +165,8 @@ export default class Client {
 
   public updateDeviceType(
     deviceTypeId: string,
-    params: updateDeviceTypeParams,
-  ): Promise<any> {
+    params: UpdateDeviceTypeParams,
+  ): Promise<void> {
     return this.http.put(`/device-types/${deviceTypeId}`, params);
   }
 
@@ -190,7 +190,7 @@ export default class Client {
   public selectDownlinkCallback(
     deviceTypeId: string,
     callbackId: string,
-  ): Promise<any> {
+  ): Promise<void> {
     return this.http.put(
       `/device-types/${deviceTypeId}/callbacks/${callbackId}/downlink`,
     );
