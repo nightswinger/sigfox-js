@@ -4,7 +4,8 @@ import {
   CreateDeviceParams,
   CreateDeviceTypeOutput,
   CreateDeviceTypeParams,
-  createGroupParams,
+  CreateGroupOutput,
+  CreateGroupParams,
   CreateMultipleDevicesOutput,
   CreateMultipleDevicesParams,
   Device,
@@ -22,7 +23,8 @@ import {
   GetUndeliveredCallbacksOutput,
   GetUndeliveredCallbacksQuery,
   Group,
-  groupsQueryParams,
+  GroupsOutput,
+  GroupsQuery,
   JobStatus,
   Pagination,
   ResumeMultipleDevicesOutput,
@@ -205,13 +207,11 @@ export default class Client {
     );
   }
 
-  public groups(
-    query: groupsQueryParams = {},
-  ): Promise<{ data?: Group[]; paging?: Pagination }> {
+  public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
 
-  public createGroup(params: createGroupParams): Promise<{ id?: string }> {
+  public createGroup(params: CreateGroupParams): Promise<CreateGroupOutput> {
     return this.http.post("/groups", params);
   }
 

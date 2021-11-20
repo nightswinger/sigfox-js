@@ -62,6 +62,19 @@ export type CreateDeviceTypeParams = {
   geolocPayloadConfigId: string;
 };
 
+export type CreateGroupOutput = {
+  id?: string;
+};
+
+export type CreateGroupParams = {
+  name: string;
+  description: string;
+  type: number;
+  timezone: string;
+  parentId: string;
+  networkOperatorId?: string;
+};
+
 export type CreateMultipleDevicesOutput = {
   total?: number;
   jobId?: string;
@@ -292,6 +305,25 @@ export type Group = {
   networkOperatorId?: string;
 };
 
+export type GroupsOutput = {
+  data?: Group[];
+  paging?: Pagination;
+};
+
+export type GroupsQuery = {
+  parentIds?: string[];
+  deep?: boolean;
+  name?: string;
+  types?: number[];
+  fields?: string;
+  action?: string;
+  sort?: string;
+  authorizations?: boolean;
+  limit?: number;
+  offset?: number;
+  pageId?: string;
+};
+
 export type JobStatus = {
   jobDone?: boolean;
   total?: number;
@@ -415,29 +447,6 @@ export type UpdateMultipleDevicesOutput = {
 
 export type UpdateMultipleDevicesParams = {
   data: DeviceEditionBulk[];
-};
-
-export type createGroupParams = {
-  name: string;
-  description: string;
-  type: number;
-  timezone: string;
-  parentId: string;
-  networkOperatorId?: string;
-};
-
-export type groupsQueryParams = {
-  parentIds?: string[];
-  deep?: boolean;
-  name?: string;
-  types?: number[];
-  fields?: string;
-  action?: string;
-  sort?: string;
-  authorizations?: boolean;
-  limit?: number;
-  offset?: number;
-  pageId?: string;
 };
 
 export type UpdateDeviceTypeParams = {
