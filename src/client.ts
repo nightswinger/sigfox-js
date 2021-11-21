@@ -16,6 +16,7 @@ import {
   DeviceTypesQuery,
   GetDeviceLocationsOutput,
   GetDeviceLocationsQuery,
+  GetGroupQuery,
   GetMessagesOutput,
   GetMessagesQuery,
   GetNumberOfMessagesOutput,
@@ -26,7 +27,6 @@ import {
   GroupsOutput,
   GroupsQuery,
   JobStatus,
-  Pagination,
   ResumeMultipleDevicesOutput,
   ResumeMultipleDevicesParams,
   TransferMultipleDevicesOutput,
@@ -215,8 +215,8 @@ export default class Client {
     return this.http.post("/groups", params);
   }
 
-  public getGroup(groupId: string): Promise<any> {
-    return this.http.get(`/groups/${groupId}`);
+  public getGroup(groupId: string, query: GetGroupQuery = {}): Promise<Group> {
+    return this.http.get(`/groups/${groupId}`, query);
   }
 
   public updateGroup(groupId: string, params: any): Promise<void> {

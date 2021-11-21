@@ -254,6 +254,11 @@ export type GetDeviceLocationsQuery = {
   offset?: number;
 };
 
+export type GetGroupQuery = {
+  fields?: string;
+  authorizations?: boolean;
+};
+
 export type GetResumeJobStatusOutput = {
   jobDone?: boolean;
   status?: object;
