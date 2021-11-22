@@ -35,6 +35,7 @@ import {
   UnsubscribeMultipleDevicesParams,
   UpdateDeviceParams,
   UpdateDeviceTypeParams,
+  UpdateGroupParams,
   UpdateMultipleDevicesOutput,
   UpdateMultipleDevicesParams,
 } from "./types";
@@ -219,7 +220,10 @@ export default class Client {
     return this.http.get(`/groups/${groupId}`, query);
   }
 
-  public updateGroup(groupId: string, params: any): Promise<void> {
+  public updateGroup(
+    groupId: string,
+    params: UpdateGroupParams,
+  ): Promise<void> {
     return this.http.put(`/groups/${groupId}`, params);
   }
 

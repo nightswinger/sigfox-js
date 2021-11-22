@@ -445,15 +445,6 @@ export type UpdateDeviceParams = {
   name?: string;
 };
 
-export type UpdateMultipleDevicesOutput = {
-  total?: number;
-  jobId?: string;
-};
-
-export type UpdateMultipleDevicesParams = {
-  data: DeviceEditionBulk[];
-};
-
 export type UpdateDeviceTypeParams = {
   name?: string;
   description?: string;
@@ -467,4 +458,20 @@ export type UpdateDeviceTypeParams = {
   contractId?: string;
   contracts?: string[];
   geolocPayloadConfigId?: string;
+};
+
+export type UpdateGroupParams = {
+  name?: string;
+  description?: string;
+  type?: number;
+  timezone?: string;
+};
+
+export type UpdateMultipleDevicesOutput = {
+  total?: number;
+  jobId?: string;
+};
+
+export type UpdateMultipleDevicesParams = {
+  data: DeviceEditionBulk[];
 };
