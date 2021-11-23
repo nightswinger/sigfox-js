@@ -295,6 +295,25 @@ export type GetNumberOfMessagesOutput = {
   lastMonth?: number;
 };
 
+export type GetOperatorOutput = {
+  id?: string;
+  autoCloseCampaign?: boolean;
+  transmitterPower?: number;
+  minDb?: number;
+  maxDb?: number;
+  alertTime?: number;
+  requestTrackerBaseUrl?: string;
+  antenna?: object;
+  warrantyMode?: number;
+  networkType?: number;
+  actions?: string[];
+};
+
+export type GetOperatorQuery = {
+  fields?: string;
+  authorizations?: boolean;
+};
+
 export type Group = {
   name?: string;
   description?: string;

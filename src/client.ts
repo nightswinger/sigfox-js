@@ -1,3 +1,4 @@
+import {} from ".";
 import HTTPClient from "./http";
 import {
   CreateDeviceOutput,
@@ -20,6 +21,8 @@ import {
   GetMessagesOutput,
   GetMessagesQuery,
   GetNumberOfMessagesOutput,
+  GetOperatorOutput,
+  GetOperatorQuery,
   GetResumeJobStatusOutput,
   GetUndeliveredCallbacksOutput,
   GetUndeliveredCallbacksQuery,
@@ -231,7 +234,10 @@ export default class Client {
     return this.http.delete(`/groups/${groupId}`);
   }
 
-  public getOperator(operatorId: string, query: any = {}): Promise<any> {
+  public getOperator(
+    operatorId: string,
+    query: GetOperatorQuery = {},
+  ): Promise<GetOperatorOutput> {
     return this.http.get(`/operators/${operatorId}`, query);
   }
 
