@@ -166,7 +166,7 @@ export type DeviceMessage = {
   nbFrames?: number;
   computedLocation?: ComputedLocation[];
   rinfos?: Rinfo[];
-  donwlinkAnswerStatus?: DownlinkAnswerStatus;
+  downlinkAnswerStatus?: DownlinkAnswerStatus;
 };
 
 export type DevicesOutput = {
