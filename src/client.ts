@@ -1,4 +1,3 @@
-import {} from ".";
 import HTTPClient from "./http";
 import {
   CreateDeviceOutput,
@@ -41,6 +40,7 @@ import {
   UpdateGroupParams,
   UpdateMultipleDevicesOutput,
   UpdateMultipleDevicesParams,
+  UpdateOperatorParams,
 } from "./types";
 import { btoa } from "./utils";
 
@@ -241,7 +241,10 @@ export default class Client {
     return this.http.get(`/operators/${operatorId}`, query);
   }
 
-  public updateOperator(operatorId: string, params: any = {}): Promise<void> {
+  public updateOperator(
+    operatorId: string,
+    params: UpdateOperatorParams,
+  ): Promise<void> {
     return this.http.put(`/operators/${operatorId}`, params);
   }
 

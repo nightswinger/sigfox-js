@@ -494,3 +494,13 @@ export type UpdateMultipleDevicesOutput = {
 export type UpdateMultipleDevicesParams = {
   data: DeviceEditionBulk[];
 };
+
+export type UpdateOperatorParams = {
+  transmitterPower?: number;
+  minDb?: number;
+  maxDb?: number;
+  alertTime?: number;
+  requestTrackerBaseUrl?: string;
+  telecommunicationStandard?: object;
+  antenna?: object;
+};
