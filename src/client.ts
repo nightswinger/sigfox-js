@@ -29,6 +29,8 @@ import {
   GroupsOutput,
   GroupsQuery,
   JobStatus,
+  ProfilesOutput,
+  ProfilesQuery,
   ResumeMultipleDevicesOutput,
   ResumeMultipleDevicesParams,
   TransferMultipleDevicesOutput,
@@ -252,7 +254,10 @@ export default class Client {
     return this.http.get("/profiles", query);
   }
 
-  public getProfile(profileId: string, query: any = {}): Promise<any> {
+  public getProfile(
+    profileId: string,
+    query?: ProfilesQuery,
+  ): Promise<ProfilesOutput> {
     return this.http.get(`/profiles/${profileId}`, query);
   }
 

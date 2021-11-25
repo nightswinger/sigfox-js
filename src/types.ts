@@ -358,6 +358,29 @@ export type Pagination = {
   next?: string;
 };
 
+export type Profile = {
+  id?: string;
+  name?: string;
+  group?: MinimalGroup;
+  roles?: object[];
+  actions?: string[];
+  resources?: string[];
+};
+
+export type ProfilesOutput = {
+  data?: Profile[];
+  paging?: Pagination;
+};
+
+export type ProfilesQuery = {
+  groupId: string;
+  inherit?: boolean;
+  fields?: string;
+  limit?: number;
+  offset?: number;
+  authorizations?: boolean;
+};
+
 export type ResumeMultipleDevicesOutput = {
   jobId?: string;
 };
