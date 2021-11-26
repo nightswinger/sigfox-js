@@ -17,6 +17,7 @@ import {
   GetDeviceLocationsOutput,
   GetDeviceLocationsQuery,
   GetGroupQuery,
+  GetMessagesByDeviceTypeQuery,
   GetMessagesOutput,
   GetMessagesQuery,
   GetNumberOfMessagesOutput,
@@ -182,8 +183,11 @@ export default class Client {
     return this.http.delete(`/device-types/${deviceTypeId}`);
   }
 
-  public getMessagesByDeviceType(deviceTypeId: string): Promise<any> {
-    return this.http.get(`/device-types/${deviceTypeId}/messages`);
+  public getMessagesByDeviceType(
+    deviceTypeId: string,
+    query: GetMessagesByDeviceTypeQuery = {},
+  ): Promise<GetMessagesOutput> {
+    return this.http.get(`/device-types/${deviceTypeId}/messages`, query);
   }
 
   public enableOrDisableCallback(

@@ -276,6 +276,10 @@ export type GetUndeliveredCallbacksQuery = {
   offset?: number;
 };
 
+export type GetMessagesByDeviceTypeQuery = GetMessagesQuery & {
+  authorizations?: boolean;
+};
+
 export type GetMessagesOutput = {
   data?: DeviceMessage[];
   paging?: Pagination;
