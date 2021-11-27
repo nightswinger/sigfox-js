@@ -241,6 +241,10 @@ export type DownlinkAnswerStatus = {
   country?: string;
 };
 
+export type EnableOrDisableCallbackQuery = {
+  enabled: boolean;
+};
+
 export type GetDeviceLocationsOutput = {
   data?: DeviceLocation[];
   paging?: Pagination;

@@ -14,6 +14,7 @@ import {
   DeviceType,
   DeviceTypesOutput,
   DeviceTypesQuery,
+  EnableOrDisableCallbackQuery,
   GetDeviceLocationsOutput,
   GetDeviceLocationsQuery,
   GetGroupQuery,
@@ -193,9 +194,11 @@ export default class Client {
   public enableOrDisableCallback(
     deviceTypeId: string,
     callbackId: string,
-  ): Promise<any> {
+    query: EnableOrDisableCallbackQuery,
+  ): Promise<void> {
     return this.http.put(
       `/device-types/${deviceTypeId}/callbacks/${callbackId}/enable`,
+      query,
     );
   }
 
