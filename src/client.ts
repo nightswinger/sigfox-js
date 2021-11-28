@@ -15,6 +15,8 @@ import {
   DeviceTypesOutput,
   DeviceTypesQuery,
   EnableOrDisableCallbackQuery,
+  GetCallbacksNotDeliveredOutput,
+  GetCallbacksNotDeliveredQuery,
   GetDeviceLocationsOutput,
   GetDeviceLocationsQuery,
   GetGroupQuery,
@@ -214,9 +216,11 @@ export default class Client {
   public getCallbacksNotDelivered(
     deviceTypeId: string,
     callbackId: string,
-  ): Promise<any> {
+    query: GetCallbacksNotDeliveredQuery = {},
+  ): Promise<GetCallbacksNotDeliveredOutput> {
     return this.http.get(
       `/device-types/${deviceTypeId}/callbacks/${callbackId}/callbacks-not-delivered`,
+      query,
     );
   }
 

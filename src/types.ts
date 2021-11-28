@@ -245,6 +245,22 @@ export type EnableOrDisableCallbackQuery = {
   enabled: boolean;
 };
 
+export type GetCallbacksNotDeliveredOutput = {
+  deviceId?: string;
+  deviceTypeId?: string;
+  time?: number;
+  data?: string;
+  status?: string;
+  message?: string;
+};
+
+export type GetCallbacksNotDeliveredQuery = {
+  since?: number;
+  before?: number;
+  limit?: number;
+  offset?: number;
+};
+
 export type GetDeviceLocationsOutput = {
   data?: DeviceLocation[];
   paging?: Pagination;
