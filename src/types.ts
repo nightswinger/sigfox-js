@@ -182,10 +182,15 @@ export type DevicesQuery = {
   authorizations?: boolean;
   deviceTypeId?: string;
   operatorId?: string;
-  sort?: string;
+  sort?: "id" | "-id" | "name" | "-name" | "lastCom" | "-lastCom";
   minId?: string;
   maxId?: string;
-  fields?: string;
+  fields?:
+    | "deviceType(name)"
+    | "group(name,type,level,bssId,customerBssId)"
+    | "contract(name)"
+    | "productCertificate(key)"
+    | "modemCertificate(key)";
   limit?: number;
   offset?: number;
   pageId?: string;
