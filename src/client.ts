@@ -19,6 +19,7 @@ import {
   GetCallbacksNotDeliveredQuery,
   GetDeviceLocationsOutput,
   GetDeviceLocationsQuery,
+  GetDeviceQuery,
   GetGroupQuery,
   GetMessagesByDeviceTypeQuery,
   GetMessagesOutput,
@@ -77,8 +78,11 @@ export default class Client {
     return this.http.post("/devices", params);
   }
 
-  public getDevice(deviceId: string): Promise<Device> {
-    return this.http.get(`/devices/${deviceId}`);
+  public getDevice(
+    deviceId: string,
+    query: GetDeviceQuery = {},
+  ): Promise<Device> {
+    return this.http.get(`/devices/${deviceId}`, query);
   }
 
   public updateDevice(

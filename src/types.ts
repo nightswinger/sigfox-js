@@ -279,6 +279,16 @@ export type GetDeviceLocationsQuery = {
   offset?: number;
 };
 
+export type GetDeviceQuery = {
+  authorizations?: boolean;
+  fields?:
+    | "deviceType(name)"
+    | "group(name,type,level,bssId,customerBssId)"
+    | "contract(name)"
+    | "productCertificate(key)"
+    | "modemCertificate(key)";
+};
+
 export type GetGroupQuery = {
   fields?: string;
   authorizations?: boolean;
