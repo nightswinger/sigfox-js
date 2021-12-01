@@ -321,7 +321,12 @@ export type GetMessagesOutput = {
 };
 
 export type GetMessagesQuery = {
-  fields?: string;
+  fields?:
+    | "oob"
+    | "ackRequired"
+    | "device(name)"
+    | "rinfos(cbStatus,rep,repetitions,baseStation(name))"
+    | "downlinkAnswerStatus(baseStation(name))";
   since?: number;
   before?: number;
   limit?: number;
