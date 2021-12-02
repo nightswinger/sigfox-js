@@ -316,6 +316,14 @@ export default class Client {
     return this.http.get(`/contract-infos/${contractId}`, query);
   }
 
+  public contractBulkRestart(contractId: string): Promise<any> {
+    return this.http.post(`/contract-infos/${contractId}/bulk/restart`)
+  }
+
+  public getContractBulkRestartJob(jobId: string): Promise<any> {
+    return this.http.get(`/contract-infos/bulk/restart/${jobId}`)
+  }
+
   private authHeader() {
     const { username, password } = this.config;
     const basicAuth = "Basic " + btoa(username + ":" + password);
