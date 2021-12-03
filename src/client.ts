@@ -251,6 +251,13 @@ export default class Client {
     return this.http.delete(`/groups/${groupId}`);
   }
 
+  public getCallbackMessagesErrorListForGroup(
+    groupId: string,
+    query = {},
+  ): Promise<any> {
+    return this.http.get(`/groups/${groupId}/callbacks-not-delivered`, query);
+  }
+
   public getOperator(
     operatorId: string,
     query: GetOperatorQuery = {},
@@ -317,11 +324,11 @@ export default class Client {
   }
 
   public contractBulkRestart(contractId: string): Promise<any> {
-    return this.http.post(`/contract-infos/${contractId}/bulk/restart`)
+    return this.http.post(`/contract-infos/${contractId}/bulk/restart`);
   }
 
   public getContractBulkRestartJob(jobId: string): Promise<any> {
-    return this.http.get(`/contract-infos/bulk/restart/${jobId}`)
+    return this.http.get(`/contract-infos/bulk/restart/${jobId}`);
   }
 
   private authHeader() {
