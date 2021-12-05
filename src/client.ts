@@ -70,6 +70,10 @@ export default class Client {
     });
   }
 
+  public listApiUsers(query: any = {}): Promise<any> {
+    return this.http.get("/api-users", query);
+  }
+
   public devices(params: DevicesQuery = {}): Promise<DevicesOutput> {
     return this.http.get("/devices", params);
   }
