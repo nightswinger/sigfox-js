@@ -74,6 +74,10 @@ export default class Client {
     return this.http.get("/api-users", query);
   }
 
+  public createApiUser(params: any = {}): Promise<any> {
+    return this.http.post("/api-users", params);
+  }
+
   public devices(params: DevicesQuery = {}): Promise<DevicesOutput> {
     return this.http.get("/devices", params);
   }
