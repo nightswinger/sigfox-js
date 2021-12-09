@@ -82,6 +82,10 @@ export default class Client {
     return this.http.get(`/api-users/${userId}`, query);
   }
 
+  public updateApiUser(userId: string, params: any = {}): Promise<any> {
+    return this.http.put(`/api-users/${userId}`, params)
+  }
+
   public devices(params: DevicesQuery = {}): Promise<DevicesOutput> {
     return this.http.get("/devices", params);
   }
