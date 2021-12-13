@@ -90,6 +90,10 @@ export default class Client {
     return this.http.delete(`/api-users/${userId}`);
   }
 
+  public addProfileToApiUser(userId: string, params: any): Promise<void> {
+    return this.http.put(`/api-users/${userId}/profiles`, params);
+  }
+
   public devices(params: DevicesQuery = {}): Promise<DevicesOutput> {
     return this.http.get("/devices", params);
   }
