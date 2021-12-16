@@ -138,6 +138,13 @@ export default class Client {
     return this.http.get(`/devices/${deviceId}/callbacks-not-delivered`, query);
   }
 
+  public getModemCertificateInfo(
+    deviceId: string,
+    query: any = {},
+  ): Promise<any> {
+    return this.http.get(`/devices/${deviceId}/certificate/modem`, query);
+  }
+
   public disengageSequenceNumber(deviceId: string): Promise<void> {
     return this.http.post(`/devices/${deviceId}/disengage`);
   }
