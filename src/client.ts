@@ -277,6 +277,10 @@ export default class Client {
     );
   }
 
+  public listCallbacks(deviceTypeId: string): Promise<any> {
+    return this.http.get(`/device-types/${deviceTypeId}/callbacks`);
+  }
+
   public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
