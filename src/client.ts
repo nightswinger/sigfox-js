@@ -281,6 +281,10 @@ export default class Client {
     return this.http.get(`/device-types/${deviceTypeId}/callbacks`);
   }
 
+  public createCallback(deviceTypeId: string, params: any): Promise<any> {
+    return this.http.post(`/device-types/${deviceTypeId}/callbacks`, params);
+  }
+
   public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
