@@ -285,6 +285,17 @@ export default class Client {
     return this.http.post(`/device-types/${deviceTypeId}/callbacks`, params);
   }
 
+  public updateCallback(
+    deviceTypeId: string,
+    callbackId: string,
+    params: any = {},
+  ): Promise<void> {
+    return this.http.put(
+      `/device-types/${deviceTypeId}/callbacks/${callbackId}`,
+      params,
+    );
+  }
+
   public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
