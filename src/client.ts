@@ -296,6 +296,15 @@ export default class Client {
     );
   }
 
+  public deleteCallback(
+    deviceTypeId: string,
+    callbackId: string,
+  ): Promise<void> {
+    return this.http.delete(
+      `/device-types/${deviceTypeId}/callbacks/${callbackId}`,
+    );
+  }
+
   public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
