@@ -305,6 +305,10 @@ export default class Client {
     );
   }
 
+  public deviceTypesSeqNumberDisengage(deviceTypeId: string): Promise<void> {
+    return this.http.put(`/device-types/${deviceTypeId}/disengage`);
+  }
+
   public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
