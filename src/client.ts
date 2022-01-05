@@ -309,6 +309,10 @@ export default class Client {
     return this.http.put(`/device-types/${deviceTypeId}/disengage`);
   }
 
+  public deviceTypeBulkRestart(deviceTypeId: string): Promise<any> {
+    return this.http.post(`/device-types/${deviceTypeId}/bulk/restart`);
+  }
+
   public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
