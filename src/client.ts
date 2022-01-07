@@ -313,6 +313,10 @@ export default class Client {
     return this.http.post(`/device-types/${deviceTypeId}/bulk/restart`);
   }
 
+  public getDeviceTypeBulkRestartJob(jobId: string): Promise<any> {
+    return this.http.get(`/device-types/bulk/restart/${jobId}`);
+  }
+
   public groups(query: GroupsQuery = {}): Promise<GroupsOutput> {
     return this.http.get("/groups", query);
   }
