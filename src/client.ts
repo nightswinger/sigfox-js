@@ -347,6 +347,13 @@ export default class Client {
     return this.http.get(`/groups/${groupId}/callbacks-not-delivered`, query);
   }
 
+  public listGeolocationPayload(
+    groupId: string,
+    query: any = {},
+  ): Promise<any> {
+    return this.http.get(`/groups/${groupId}/geoloc-payloads`, query);
+  }
+
   public getOperator(
     operatorId: string,
     query: GetOperatorQuery = {},
