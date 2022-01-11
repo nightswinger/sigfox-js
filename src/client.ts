@@ -379,7 +379,7 @@ export default class Client {
     return this.http.get(`/profiles/${profileId}`, query);
   }
 
-  public users(query: any = {}): Promise<any> {
+  public listUsers(query: any = {}): Promise<any> {
     return this.http.get("/users", query);
   }
 
@@ -425,10 +425,6 @@ export default class Client {
 
   public getContractBulkRestartJob(jobId: string): Promise<any> {
     return this.http.get(`/contract-infos/bulk/restart/${jobId}`);
-  }
-
-  public listUsers(query: any = {}): Promise<any> {
-    return this.http.get("/users", query);
   }
 
   private authHeader() {
