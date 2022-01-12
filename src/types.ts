@@ -25,6 +25,13 @@ export type ContractId = {
   id: string;
 };
 
+export type CreateApiUserParams = {
+  groupId: string;
+  name: string;
+  timezone: string;
+  profileIds: string[];
+};
+
 export type CreateDeviceOutput = {
   id?: string;
 };

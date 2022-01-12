@@ -1,5 +1,6 @@
 import HTTPClient from "./http";
 import {
+  CreateApiUserParams,
   CreateDeviceOutput,
   CreateDeviceParams,
   CreateDeviceTypeOutput,
@@ -74,7 +75,7 @@ export default class Client {
     return this.http.get("/api-users", query);
   }
 
-  public createApiUser(params: any = {}): Promise<any> {
+  public createApiUser(params: CreateApiUserParams): Promise<{ id: string }> {
     return this.http.post("/api-users", params);
   }
 
