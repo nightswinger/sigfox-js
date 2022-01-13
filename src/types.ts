@@ -1,3 +1,15 @@
+export type ApiUser = {
+  name?: string;
+  timezone?: string;
+  group?: MinimalGroup;
+  creationTime?: number;
+  id?: string;
+  accessToken?: string;
+  profiles?: Profile[];
+  actions?: string[];
+  resources?: string[];
+};
+
 export type Callback = {
   subject?: string;
   message?: string;
@@ -255,6 +267,13 @@ export type DownlinkAnswerStatus = {
 
 export type EnableOrDisableCallbackQuery = {
   enabled: boolean;
+};
+
+export type GetApiUserQuery = {
+  fields?:
+    | "group(name,type,level,bssId,customerBssId)"
+    | "profiles(name,roles(name,perms(name)))";
+  authorizations?: boolean;
 };
 
 export type GetCallbacksNotDeliveredOutput = {

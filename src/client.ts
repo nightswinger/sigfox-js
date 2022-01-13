@@ -1,5 +1,6 @@
 import HTTPClient from "./http";
 import {
+  ApiUser,
   CreateApiUserParams,
   CreateDeviceOutput,
   CreateDeviceParams,
@@ -16,6 +17,7 @@ import {
   DeviceTypesOutput,
   DeviceTypesQuery,
   EnableOrDisableCallbackQuery,
+  GetApiUserQuery,
   GetCallbacksNotDeliveredOutput,
   GetCallbacksNotDeliveredQuery,
   GetDeviceLocationsOutput,
@@ -79,7 +81,10 @@ export default class Client {
     return this.http.post("/api-users", params);
   }
 
-  public getApiUser(userId: string, query: any = {}): Promise<any> {
+  public getApiUser(
+    userId: string,
+    query: GetApiUserQuery = {},
+  ): Promise<ApiUser> {
     return this.http.get(`/api-users/${userId}`, query);
   }
 
