@@ -547,6 +547,12 @@ export type UnsubscribeMultipleDevicesParams = {
   }[];
 };
 
+export type UpdateApiUserParams = {
+  name?: string;
+  timezone?: string;
+  profileId?: string[];
+};
+
 export type UpdateDeviceParams = {
   activable?: boolean;
   automaticRenewal?: boolean;

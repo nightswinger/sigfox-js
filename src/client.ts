@@ -45,6 +45,7 @@ import {
   TransferMultipleDevicesParams,
   UnsubscribeMultipleDevicesOutput,
   UnsubscribeMultipleDevicesParams,
+  UpdateApiUserParams,
   UpdateDeviceParams,
   UpdateDeviceTypeParams,
   UpdateGroupParams,
@@ -88,7 +89,10 @@ export default class Client {
     return this.http.get(`/api-users/${userId}`, query);
   }
 
-  public updateApiUser(userId: string, params: any = {}): Promise<void> {
+  public updateApiUser(
+    userId: string,
+    params: UpdateApiUserParams = {},
+  ): Promise<void> {
     return this.http.put(`/api-users/${userId}`, params);
   }
 
