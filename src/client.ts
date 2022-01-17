@@ -1,5 +1,6 @@
 import HTTPClient from "./http";
 import {
+  AddProfileToApiUserParams,
   ApiUser,
   CreateApiUserParams,
   CreateDeviceOutput,
@@ -100,7 +101,10 @@ export default class Client {
     return this.http.delete(`/api-users/${userId}`);
   }
 
-  public addProfileToApiUser(userId: string, params: any): Promise<void> {
+  public addProfileToApiUser(
+    userId: string,
+    params: AddProfileToApiUserParams,
+  ): Promise<void> {
     return this.http.put(`/api-users/${userId}/profiles`, params);
   }
 

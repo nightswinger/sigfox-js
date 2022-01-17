@@ -1,3 +1,7 @@
+export type AddProfileToApiUserParams = {
+  profileId?: string[];
+};
+
 export type ApiUser = {
   name?: string;
   timezone?: string;
