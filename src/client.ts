@@ -40,6 +40,7 @@ import {
   JobStatus,
   ProfilesOutput,
   ProfilesQuery,
+  RenewCredentialOutput,
   ResumeMultipleDevicesOutput,
   ResumeMultipleDevicesParams,
   TransferMultipleDevicesOutput,
@@ -115,7 +116,7 @@ export default class Client {
     return this.http.delete(`/api-users/${userId}/profiles/${profileId}`);
   }
 
-  public renewCredential(userId: string): Promise<any> {
+  public renewCredential(userId: string): Promise<RenewCredentialOutput> {
     return this.http.put(`/api-users/${userId}/renew-credential`);
   }
 

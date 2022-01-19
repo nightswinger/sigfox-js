@@ -455,6 +455,10 @@ export type ProfilesQuery = {
   authorizations?: boolean;
 };
 
+export type RenewCredentialOutput = {
+  accessToken?: string;
+};
+
 export type ResumeMultipleDevicesOutput = {
   jobId?: string;
 };
