@@ -38,6 +38,7 @@ import {
   GroupsOutput,
   GroupsQuery,
   JobStatus,
+  ListUsersQuery,
   ProfilesOutput,
   ProfilesQuery,
   RenewCredentialOutput,
@@ -394,7 +395,7 @@ export default class Client {
     return this.http.get(`/profiles/${profileId}`, query);
   }
 
-  public listUsers(query: any = {}): Promise<any> {
+  public listUsers(query: ListUsersQuery = {}): Promise<any> {
     return this.http.get("/users", query);
   }
 

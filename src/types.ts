@@ -428,6 +428,19 @@ export type JobStatus = {
   status?: object;
 };
 
+export type ListUsersQuery = {
+  fields?: string;
+  text?: string;
+  profileId?: string;
+  groupIds?: string[];
+  deep?: boolean;
+  sort?: "id" | "-id" | "name" | "-name" | "email" | "-email";
+  authorizations?: boolean;
+  limit?: number;
+  offset?: number;
+  pageId?: string;
+};
+
 export type Pagination = {
   next?: string;
 };
