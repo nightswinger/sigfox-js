@@ -324,6 +324,10 @@ export type GetGroupQuery = {
   authorizations?: boolean;
 };
 
+export type GetModemCertificateInfoQuery = {
+  fields?: "manufacturer(name)";
+};
+
 export type GetResumeJobStatusOutput = {
   jobDone?: boolean;
   status?: object;

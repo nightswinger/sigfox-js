@@ -28,6 +28,7 @@ import {
   GetMessagesByDeviceTypeQuery,
   GetMessagesOutput,
   GetMessagesQuery,
+  GetModemCertificateInfoQuery,
   GetNumberOfMessagesOutput,
   GetOperatorOutput,
   GetOperatorQuery,
@@ -156,7 +157,7 @@ export default class Client {
 
   public getModemCertificateInfo(
     deviceId: string,
-    query: any = {},
+    query: GetModemCertificateInfoQuery = {},
   ): Promise<any> {
     return this.http.get(`/devices/${deviceId}/certificate/modem`, query);
   }
